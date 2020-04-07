@@ -224,15 +224,6 @@ export default ({
             />
           </div>
         </div>
-        <SettingsDialog
-          open={state.settingsOpen}
-          onClose={() =>
-            dispatch({
-              type: "HEADER_BUTTON_CLICKED",
-              buttonName: "Settings"
-            })
-          }
-        />
       </div>
     </Fullscreen>
   )

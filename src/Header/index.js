@@ -80,23 +80,6 @@ export const Header = ({
               />
             </>
           )}
-          {videoMode && (
-            <>
-              {!videoPlaying ? (
-                <HeaderButton key="play" name="Play" Icon={PlayIcon} />
-              ) : (
-                <HeaderButton key="pause" name="Pause" Icon={PauseIcon} />
-              )}
-            </>
-          )}
-          <HeaderButton name="Settings" Icon={SettingsIcon} />
-          {/* <HeaderButton name="Help" Icon={HelpIcon} /> */}
-          {inFullScreen ? (
-            <HeaderButton name="Window" Icon={FullscreenIcon} />
-          ) : (
-            <HeaderButton name="Fullscreen" Icon={FullscreenIcon} />
-          )}
-          {/* <HeaderButton name="Hotkeys" Icon={HotkeysIcon} /> */}
           <HeaderButton name="Save" Icon={ExitIcon} />
         </HeaderButtonContext.Provider>
       </div>
