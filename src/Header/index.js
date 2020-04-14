@@ -67,19 +67,6 @@ export const Header = ({
       )}
       <div className={classes.headerActions}>
         <HeaderButtonContext.Provider value={{ onHeaderButtonClick }}>
-          {(multipleImages || alwaysShowPrevButton) && (
-            <HeaderButton name="Prev" Icon={BackIcon} />
-          )}
-          {(multipleImages || alwaysShowNextButton) && (
-            <>
-              <HeaderButton name="Next" Icon={NextIcon} />
-              <HeaderButton
-                name="Clone"
-                disabled={nextVideoFrameHasRegions}
-                Icon={QueuePlayNextIcon}
-              />
-            </>
-          )}
           <HeaderButton name="Save" Icon={ExitIcon} />
         </HeaderButtonContext.Provider>
       </div>

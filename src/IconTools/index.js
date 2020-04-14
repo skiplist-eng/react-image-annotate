@@ -8,7 +8,6 @@ import {
   faExpandArrowsAlt,
   faTag,
   faPaintBrush,
-  faCrosshairs,
   faDrawPolygon,
   faVectorSquare,
   faHandPaper,
@@ -87,11 +86,6 @@ export const IconTools = ({
           selected={showTags}
           name="Show Tags"
           icon={<FontAwesomeIcon size="xs" fixedWidth icon={faTag} />}
-        />
-        <SmallToolButton
-          id="create-point"
-          name="Add Point"
-          icon={<FontAwesomeIcon size="xs" fixedWidth icon={faCrosshairs} />}
         />
         <SmallToolButton
           id="create-box"

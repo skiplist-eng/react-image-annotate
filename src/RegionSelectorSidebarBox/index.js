@@ -11,8 +11,6 @@ import PieChartIcon from "@material-ui/icons/PieChart"
 import TrashIcon from "@material-ui/icons/Delete"
 import LockIcon from "@material-ui/icons/Lock"
 import UnlockIcon from "@material-ui/icons/LockOpen"
-import VisibleIcon from "@material-ui/icons/Visibility"
-import VisibleOffIcon from "@material-ui/icons/VisibilityOff"
 import styles from "./styles"
 import classnames from "classnames"
 import isEqual from "lodash/isEqual"
@@ -44,7 +42,6 @@ const RowLayout = ({
   tags,
   trash,
   lock,
-  visible,
   onClick
 }) => {
   const classes = useStyles()
@@ -72,9 +69,6 @@ const RowLayout = ({
         <Grid item xs={1}>
           {lock}
         </Grid>
-        <Grid item xs={1}>
-          {visible}
-        </Grid>
       </Grid>
     </div>
   )
@@ -90,7 +84,6 @@ const RowHeader = () => {
       area={<PieChartIcon className="icon" />}
       trash={<TrashIcon className="icon" />}
       lock={<LockIcon className="icon" />}
-      visible={<VisibleIcon className="icon" />}
     />
   )
 }
@@ -103,7 +96,6 @@ const Row = ({
   onSelectRegion,
   onDeleteRegion,
   onChangeRegion,
-  visible,
   locked,
   color,
   cls,
@@ -131,19 +123,6 @@ const Row = ({
           />
         )
       }
-      visible={
-        r.visible || r.visible === undefined ? (
-          <VisibleIcon
-            onClick={() => onChangeRegion({ ...r, visible: false })}
-            className="icon2"
-          />
-        ) : (
-          <VisibleOffIcon
-            onClick={() => onChangeRegion({ ...r, visible: true })}
-            className="icon2"
-          />
-        )
-      }
     />
   )
 }
@@ -152,7 +131,6 @@ const MemoRow = memo(
   Row,
   (prevProps, nextProps) =>
     prevProps.highlighted === nextProps.highlighted &&
-    prevProps.visible === nextProps.visible &&
     prevProps.locked === nextProps.locked &&
     prevProps.id === nextProps.id &&
     prevProps.index === nextProps.index &&
@@ -193,13 +171,7 @@ export const RegionSelectorSidebarBox = ({
   )
 }
 
-const mapUsedRegionProperties = r => [
-  r.id,
-  r.color,
-  r.locked,
-  r.visible,
-  r.highlighted
-]
+const mapUsedRegionProperties = r => [r.id, r.color, r.locked, r.highlighted]
 
 export default memo(RegionSelectorSidebarBox, (prevProps, nextProps) =>
   isEqual(

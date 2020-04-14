@@ -10,7 +10,6 @@ import type {
   MainLayoutState,
   Action
 } from "../MainLayout/types"
-import SettingsProvider from "../SettingsProvider"
 
 import combineReducers from "./reducers/combine-reducers.js"
 import generalReducer from "./reducers/general-reducer.js"
@@ -120,19 +119,20 @@ export const Annotator = ({
   })
 
   useEffect(() => {
-    dispatchToReducer({ type: "SELECT_IMAGE", image: state.images.find(img => img.src === selectedImage) })
+    dispatchToReducer({
+      type: "SELECT_IMAGE",
+      image: state.images.find(img => img.src === selectedImage)
+    })
   }, [selectedImage])
 
   return (
-    <SettingsProvider>
-      <MainLayout
-        RegionEditLabel={RegionEditLabel}
-        alwaysShowNextButton={Boolean(onNextImage)}
-        alwaysShowPrevButton={Boolean(onPrevImage)}
-        state={state}
-        dispatch={dispatch}
-      />
-    </SettingsProvider>
+    <MainLayout
+      RegionEditLabel={RegionEditLabel}
+      alwaysShowNextButton={Boolean(onNextImage)}
+      alwaysShowPrevButton={Boolean(onPrevImage)}
+      state={state}
+      dispatch={dispatch}
+    />
   )
 }
 

@@ -10,7 +10,6 @@ import React, {
 import type { Node } from "react"
 import { Matrix } from "transformation-matrix-js"
 import getImageData from "get-image-data"
-import Crosshairs from "../Crosshairs"
 import type {
   Region,
   PixelRegion,
@@ -54,7 +53,6 @@ type Props = {
   createWithPrimary?: boolean,
   showTags?: boolean,
   realSize?: { width: number, height: number, unitName: string },
-  showCrosshairs?: boolean,
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   regionClsList?: Array<string>,
@@ -98,7 +96,6 @@ export default ({
   pointDistancePrecision = 0,
   regionClsList,
   regionTagList,
-  showCrosshairs,
   showPointDistances,
   allowedArea,
   RegionEditLabel = null,
@@ -416,9 +413,6 @@ export default ({
           : undefined
       }}
     >
-      {showCrosshairs && (
-        <Crosshairs key="crossHairs" mousePosition={mousePosition} />
-      )}
       {imageLoaded && (
         <RegionSelectAndTransformBoxes
           key="regionSelectAndTransformBoxes"
